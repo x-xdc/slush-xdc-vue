@@ -1,0 +1,23 @@
+{
+  "name": "slush-czh-vue",
+  "version": "0.7.0",
+  "description": "A vue project template for xdc.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xdc/slush-xdc-vue.git"
+  },
+  "scripts": {},
+  "keywords": [
+    "xdc",
+    "vue",
+    "slushgenerator"
+  ],
+  "author": "czh",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xdc/slush-xdc-vue/issues"
+  },
+  "homepage": "https://github.com/xdc/slush-xdc-vue#readme",
+  "dependencies": {}
+}

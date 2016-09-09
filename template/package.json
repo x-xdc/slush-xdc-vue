@@ -1,0 +1,27 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.0",
+  "description": "<%= description %>",
+  "private": <%= private %>,
+  "keywords": [
+  ],
+  "scripts": {
+    "dev": "xdc watch",
+    "dist": "xdc build -p",
+    "deploy": "xdc build --no-color"<% if (unit) { %>,
+    "test": "xdc test karma start --single-run"<% } %>
+  },<% if (github) { %>
+  "repository": {
+    "type": "git",
+    "url": "git+<%= github %>.git"
+  },
+  "homepage": "<%= github %>#readme",
+  "bugs": {
+    "url": "<%= github %>/issues"
+  },<% } %><% if (author) { %>
+  "author": "<%= author %>",<% } %>
+  "license": "<%= license %>",
+  "dependencies": {
+    "vue": "^1.0.0"
+  }
+}
