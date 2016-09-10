@@ -48,7 +48,7 @@ xdc.set({
   assetsPath: 'static',
   urlLoaderLimit: 10000,
   extractCSS: '[name].[contenthash:7].css',
-  extends: ['vue', 'lint'<% if( csstype) { %>, '<%= csstype %>'<% } %><% if (isNextWebpack) { %>, 'autoprefixer'<% } %>]
+  extends: ['vue', 'lint'<% if( csstype) { %>, '<%= csstype %>'<% } %>]
 });
 
 xdc.add('resolve.alias', {
