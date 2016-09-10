@@ -1,6 +1,6 @@
 {
   "name": "slush-xdc-vue",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "A vue project template for xdc.",
   "main": "index.js",
   "repository": {
