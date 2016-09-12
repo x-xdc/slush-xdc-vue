@@ -22,6 +22,7 @@
   "author": "<%= author %>",<% } %>
   "license": "<%= license %>",
   "dependencies": {
-    "vue": "^1.0.0"
+    "vue": "^1.0.0",
+    "gh-pages": "^0.11.0"
   }
 }

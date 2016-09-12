@@ -44,7 +44,7 @@ xdc.set({
   <% if (isNextWebpack) { %>postcss: [
     // require('...')
   ],<% } %>
-  publicPath: '/dist/',
+  publicPath: '/',
   assetsPath: 'static',
   urlLoaderLimit: 10000,
   extractCSS: '[name].[contenthash:7].css',
@@ -55,4 +55,7 @@ xdc.add('resolve.alias', {
   'src': path.join(__dirname, 'src')
 });
 
+xdc.add('externals', {
+  'vue': 'Vue'
+});
 module.exports = xdc.resolve();
