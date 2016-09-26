@@ -1,12 +1,11 @@
 <template>
-  <h1><%= name %></h1>
-  <p><%= description %></p>
-  <router-view></router-view>
+  <div>
+    <h1><%= name %></h1>
+    <p><%= description %></p>
+  </div>
 </template>
 
-<script type="text/babel">
-  import './assets/font/iconfont.css';
-
+<script>
   export default {
     name: 'app'
   };
