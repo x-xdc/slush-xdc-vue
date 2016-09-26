@@ -34,4 +34,5 @@ xdc.set({
   extends: ['vue<%= vueVersion %>'<% if (js) { %>, '<%= js %>'<% } %>, 'lint'<% if (csstype) { %>, '<%= csstype %>'<% } %><% if (csstype != 'saladcss') { %>, 'autoprefixer'<% } %>]
 });
 
+
 module.exports = xdc.resolve();
