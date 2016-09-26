@@ -5,21 +5,6 @@ var rename = require('gulp-rename')
 var template = require('gulp-template')
 var inquirer = require('inquirer')
 var xdcConfig = require('xdc-config')
-var isNextWebpack = false
-try {
-  isNextWebpack = require('xdc/util/check').isNextWebpack
-} catch(_) {}
-
-var CssChoices = [
-  {name: 'Only CSS', value: ''},
-  {name: 'Salad', value: 'saladcss'},
-  {name: 'Sass', value: 'sass'},
-  {name: 'Less', value: 'less'}
-]
-
-if (!isNextWebpack) {
-  CssChoices.push({name: 'PostCSS', value: 'postcss'})
-}
 
 gulp.task('default', function (done) {
   inquirer.prompt([
@@ -42,6 +27,37 @@ gulp.task('default', function (done) {
       default: true
     },
     {
+      type: 'list',
+      name: 'vueVersion',
+      message: 'Which Vue version do you want?',
+      default: 2,
+      choices: [
+        {name: 'Vue 2', value: 2},
+        {name: 'Vue 1', value: ''}
+      ]
+    },
+    {
+      type: 'list',
+      name: 'js',
+      message: 'Which ES2015+ compiler do you want to use?',
+      default: '',
+      choices: [
+        {name: 'bable (preset-es2015, preset-stage-0, perset-stage-2, plugin-transform-runtime)', value: ''},
+        {name: 'bublé (only use wepback 2)', value: 'buble'}
+      ]
+    },
+    {
+      type: 'list',
+      name: 'xdc',
+      message: 'How do you want to use xdc?',
+      default: '',
+      choices: [
+        {name: 'Global xdc (webpack 2)', value: ''},
+        {name: 'Local xdc (and use webpack 1)', value: '1'},
+        {name: 'Local xdc (and use webpack 2)', value: 'beta'}
+      ]
+    },
+    {
       type: 'confirm',
       name: 'devServer',
       message: 'Need dev server?',
@@ -50,9 +66,14 @@ gulp.task('default', function (done) {
     {
       type: 'list',
       name: 'csstype',
-      message: 'What CSS preprocessor do you want to use?',
+      message: 'Which CSS preprocessor do you want to use?',
       default: '',
-      choices: CssChoices
+      choices: [
+        {name: 'Only CSS', value: ''},
+        {name: 'Salad', value: 'saladcss'},
+        {name: 'Sass', value: 'sass'},
+        {name: 'Less', value: 'less'}
+      ]
     },
     {
       type: 'confirm',
@@ -93,13 +114,18 @@ gulp.task('default', function (done) {
       return done()
     }
 
-    answers.isNextWebpack = isNextWebpack
-
     var filesPath = [__dirname + '/template/**']
     if (!answers.unit) {
       filesPath = filesPath.concat([
         '!' + __dirname + '/template/karma.conf.js',
+        '!' + __dirname + '/template/test',
         '!' + __dirname + '/template/test/**'
+      ])
+    }
+
+    if (answers.js) {
+      filesPath = filesPath.concat([
+        '!' + __dirname + '/template/_babelrc'
       ])
     }
 
