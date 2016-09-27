@@ -12,6 +12,7 @@ xdc.set({
     port: 8080,
     publicPath: '/'<% } else { %>
     enable: false,
+    hostname: require('my-local-ip')(),
     extractCSS: true<% } %>
   },
 

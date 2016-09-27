@@ -71,8 +71,7 @@ gulp.task('default', function (done) {
       choices: [
         {name: 'Only CSS', value: ''},
         {name: 'Salad', value: 'saladcss'},
-        {name: 'Sass', value: 'sass'},
-        {name: 'Less', value: 'less'}
+        {name: 'Sass', value: 'sass'}
       ]
     },
     {
